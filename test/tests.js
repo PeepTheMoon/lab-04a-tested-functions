@@ -64,3 +64,41 @@ test('divide second time function', function(assert) {
     assert.equal (total, expected);
 });
 
+function isEven(i) {
+    if(i % 2 === 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+test('isEven function', function(assert) {
+    const x = 6;
+    const y = 7;
+    const expected = true;
+    const expectedY = false;
+    const even = isEven(x);
+    const odd = isEven(y);
+    assert.equal(even, expected);
+    assert.equal(odd, expectedY);
+});
+
+function getEvenNumber(someNumber) {
+    const array = [];
+
+    for(let i = 0; i < someNumber; i++) {
+        const itIsEven = i % 2 === 0;
+        const itIsNotZero = i !== 0;
+        if(itIsEven && itIsNotZero) {
+            array.push(i);
+        }
+    }
+    return array;
+}
+
+test('getEvenNumbers', function(assert) {
+    const expected = [2, 4, 6, 8];
+    const result = getEvenNumber(9);
+    assert.deepEqual(result, expected);
+
+});
